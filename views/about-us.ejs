@@ -5,85 +5,179 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | Sports Scheduler</title>
-  <link rel="stylesheet" href="/home.css" />
   <style>
+    /* Global Styles */
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
       color: #333;
-      line-height: 1.6;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 20px;
+    /* Parallax Section */
+    .parallax {
+      height: 350px;
+      background: url('sports_background.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      color: black;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
     }
 
-    h1 {
-      font-size: 2.5rem;
+    .parallax h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .parallax p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: -150px auto 50px auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Feature Item Styles */
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #f4f4f4;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      background-color: #ff5722;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    .feature-content h2 {
+      margin: 0;
+      font-size: 1.5rem;
       color: #ff5722;
     }
 
-    .gradient-text {
-      color: #333;
+    .feature-content p {
+      margin: 5px 0 0;
+      color: #555;
     }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
     }
 
-    ul li {
-      margin: 20px 0;
+    footer a {
+      color: #ff5722;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>About Us</h1>
-    <p class="gradient-text">
-      Welcome to the Sports Scheduler, where you can revolutionize your sports journey with our cutting-edge platform!
-      Seamlessly manage teams, schedules, and player stats, all in one place.
-    </p>
-
-    <ul>
-      <li>
-        <h2 class="gradient-text">Team Management</h2>
-        <p class="gradient-text">Create and manage teams, assign players, and track statistics for various sports
-          activities.</p>
-      </li>
-      <li>
-        <h2 class="gradient-text">Schedule Management</h2>
-        <p class="gradient-text">View and manage upcoming sports events, matches, and sessions. Filter by sport, date,
-          and venue.</p>
-      </li>
-      <li>
-        <h2 class="gradient-text">Player Registration</h2>
-        <p class="gradient-text">Players can register, update profiles, and manage their participation in sports
-          events.</p>
-      </li>
-      <li>
-        <h2 class="gradient-text">Statistics and Reports</h2>
-        <p class="gradient-text">Generate reports on team performance, player statistics, and participation. Analyze
-          trends for data-driven decisions.</p>
-      </li>
-      <li>
-        <h2 class="gradient-text">Notifications and Alerts</h2>
-        <p class="gradient-text">Receive real-time notifications about schedule changes, upcoming events, and
-          important announcements.</p>
-      </li>
-      <li>
-        <h2 class="gradient-text">Administration Panel</h2>
-        <p class="gradient-text">Administrators have access to a dashboard to manage users, teams, sessions, and
-          system settings.</p>
-      </li>
-    </ul>
+  <!-- Parallax Section -->
+  <div class="parallax">
+    <div>
+      <h1>About Sports Scheduler</h1>
+      <p>Revolutionize your sports journey with our all-in-one platform.</p>
+    </div>
   </div>
+
+  <!-- Content Section -->
+  <div class="container">
+    <h1>What We Offer</h1>
+
+    <!-- Feature Items -->
+    <div class="feature-item">
+      <div class="feature-icon">📋</div>
+      <div class="feature-content">
+        <h2>Team Management</h2>
+        <p>Create and manage teams, assign players, and track statistics for various sports activities.</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">📅</div>
+      <div class="feature-content">
+        <h2>Schedule Management</h2>
+        <p>View and manage upcoming sports events, matches, and sessions. Filter by sport, date, and venue.</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🏅</div>
+      <div class="feature-content">
+        <h2>Player Registration</h2>
+        <p>Players can register, update profiles, and manage their participation in sports events.</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">📊</div>
+      <div class="feature-content">
+        <h2>Statistics and Reports</h2>
+        <p>Generate reports on team performance, player statistics, and participation. Analyze trends for data-driven
+          decisions.</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🔔</div>
+      <div class="feature-content">
+        <h2>Notifications and Alerts</h2>
+        <p>Receive real-time notifications about schedule changes, upcoming events, and important announcements.</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">⚙️</div>
+      <div class="feature-content">
+        <h2>Administration Panel</h2>
+        <p>Administrators have access to a dashboard to manage users, teams, sessions, and system settings.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="/">Home</a>
+  </footer>
 </body>
 
 </html>
