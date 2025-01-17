@@ -6,30 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home | Sports Scheduler</title>
   <link rel="icon" href="/sports-icon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="/home.css" />
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+      background: url('download_enhanced.jpeg') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     .main-heading {
-      margin-top: 15vh;
       font-size: 3.5rem;
       font-weight: bold;
       color: #ff5722;
       text-shadow: 1px 1px 4px rgba(255, 87, 34, 0.5);
+      margin-bottom: 20px;
+      transition: transform 0.5s ease;
+    }
+
+    .main-heading:hover {
+      transform: scale(1.1);
     }
 
     .theme-line {
       font-size: 1.2rem;
       margin: 15px 0;
-      color: #555;
+      color: #f8f9fa;
       font-style: italic;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+      transition: opacity 0.3s ease;
+    }
+
+    .theme-line:hover {
+      opacity: 0.8;
     }
 
     .action-buttons {
@@ -46,18 +62,25 @@
       font-size: 1rem;
       border-radius: 5px;
       box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     }
 
     .action-buttons a:hover {
       background-color: #0056b3;
       box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+      transform: translateY(-3px);
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 20px;
       font-size: 0.9rem;
-      color: #666;
+      color: #f8f9fa;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+      transition: color 0.3s ease;
+    }
+
+    footer:hover {
+      color: #ff5722;
     }
   </style>
 </head>
