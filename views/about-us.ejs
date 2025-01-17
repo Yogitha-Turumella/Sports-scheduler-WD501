@@ -8,6 +8,8 @@
   <style>
     /* Global Styles */
     body {
+    background: url('about-us.jpeg') no-repeat center center;
+      background-size: cover;
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
@@ -17,30 +19,30 @@
 
     /* Parallax Section */
     .parallax {
-      height: 350px;
-      background: url('sports_background.jpg') no-repeat center center/cover;
+      height: 100vh;
+      background-attachment: fixed;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: black;
+      color: white;
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
     }
 
     .parallax h1 {
-      font-size: 3rem;
+      font-size: 4rem;
       margin: 0;
     }
 
     .parallax p {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       margin-top: 10px;
     }
 
     /* Container */
     .container {
       max-width: 1000px;
-      margin: -150px auto 50px auto;
+      margin: -200px auto 50px auto;
       background-color: white;
       padding: 40px;
       border-radius: 15px;
@@ -68,8 +70,8 @@
     .feature-icon {
       flex-shrink: 0;
       width: 60px;
-      height: 60px;
-      background-color: #ff5722;
+      height: 80px;
+      background-color: green;
       color: white;
       font-size: 2rem;
       display: flex;
@@ -80,8 +82,8 @@
 
     .feature-content h2 {
       margin: 0;
-      font-size: 1.5rem;
-      color: #ff5722;
+      font-size: 2rem;
+      color: green;
     }
 
     .feature-content p {
@@ -99,7 +101,7 @@
     }
 
     footer a {
-      color: #ff5722;
+      color: green;
       text-decoration: none;
       font-size: 1.2rem;
     }

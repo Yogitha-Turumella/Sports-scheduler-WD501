@@ -272,24 +272,37 @@ app.post(
 );
 
 app.post("/cancel-session", isAuthenticated, async (req, res) => {
-  const { session_id, reason } = req.body;
+  const { session_id } = req.body; // Check the received session_id
   const user_id = req.session.user.id;
 
-  const session = await pool.query(
-    "SELECT * FROM sessions WHERE id = $1 AND creator_id = $2",
-    [session_id, user_id]
-  );
+  console.log("Cancel Session Endpoint Hit");
+  console.log("Session ID:", session_id);
+  console.log("User ID:", user_id);
 
-  if (session.rows.length > 0) {
-    await pool.query(
-      "UPDATE sessions SET cancelled = TRUE, cancellation_reason = $1 WHERE id = $2",
-      [reason, session_id]
+  try {
+    // Check if the user is part of the session
+    const sessionPlayer = await pool.query(
+      "SELECT * FROM session_players WHERE session_id = $1 AND player_id = $2",
+      [session_id, user_id]
     );
-  }
 
-  res.redirect(
-    req.session.user.role === "admin" ? "/admin-dashboard" : "/player-dashboard"
-  );
+    if (sessionPlayer.rows.length > 0) {
+      // Remove the player from the session
+      await pool.query(
+        "DELETE FROM session_players WHERE session_id = $1 AND player_id = $2",
+        [session_id, user_id]
+      );
+      console.log("Player removed from session:", session_id);
+    } else {
+      console.log("Player not part of the session");
+    }
+
+    // Redirect back to the dashboard
+    res.redirect("/player-dashboard");
+  } catch (err) {
+    console.error("Error handling cancel session:", err);
+    res.status(500).send("An error occurred");
+  }
 });
 
 app.get("/reports", isAuthenticated, async (req, res) => {
