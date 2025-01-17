@@ -82,6 +82,9 @@ app.post("/register", async (req, res) => {
   );
   res.redirect("/login");
 });
+app.get("/about-us", (req, res) => {
+  res.render("about-us"); // Ensure about-us.ejs exists in the "views" folder
+});
 
 app.get("/admin-dashboard", isAuthenticated, async (req, res) => {
   const sports = await pool.query("SELECT * FROM sports");
