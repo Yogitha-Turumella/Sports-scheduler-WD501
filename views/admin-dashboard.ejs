@@ -3,8 +3,169 @@
   <head>
     <meta charset="UTF-8" />
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="/styles.css" />
     <link rel="icon" href="/sports-icon.png" type="image/x-icon" />
+    <style>
+      /* Base Styling */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", Arial, sans-serif;
+        background-image: url('/imagesplayerdashboard.jpeg'); /* Replace with your background image path */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(90deg, green, lightgreen);
+        color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .container.dashboard {
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        max-width: 1200px;
+        margin: 40px auto;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .logout a {
+        float: right;
+        background-color: #e53935;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+        margin-top: -40px;
+      }
+
+      .logout a:hover {
+        background-color: #b71c1c;
+      }
+
+      h2 {
+        color: green;
+        border-bottom: 2px solid green;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        background: #e3f2fd;
+        border: 1px solid #90f9db;
+        font-size: 1.1em;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      li:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      li .cancelled {
+        color: #d32f2f;
+        font-weight: bold;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+      }
+
+      input,
+      select,
+      button {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+        font-size: 1em;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: green;
+        box-shadow: 0 0 5px rgba(21, 192, 21, 0.5);
+      }
+
+      button {
+        background: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      button:hover {
+        background: green;
+        transform: translateY(-2px);
+      }
+
+      .report-link {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: green;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .report-link:hover {
+        color: lightgreen;
+      }
+
+      form {
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      form:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .content {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .content > div {
+        flex: 1;
+        min-width: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        background: #f5f5f5;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body id="admin-dashboard">
     <header>
@@ -23,11 +184,11 @@
             <% }) %>
           </ul>
           <h2>Create Sport</h2>
-<form action="/create-sport" method="POST">
-  <label for="name">Sport Name:</label>
-  <input type="text" name="name" id="name" required />
-  <button type="submit">Create Sport</button>
-</form>
+          <form action="/create-sport" method="POST">
+            <label for="name">Sport Name:</label>
+            <input type="text" name="name" id="name" required />
+            <button type="submit">Create Sport</button>
+          </form>
         </div>
         <div>
           <h2>All Sessions</h2>
