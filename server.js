@@ -118,13 +118,38 @@ app.get("/admin-dashboard", isAuthenticated, async (req, res) => {
 });
 
 app.post("/create-sport", isAuthenticated, async (req, res) => {
-  const { name } = req.body;
-  await pool.query("INSERT INTO sports (name) VALUES ($1)", [name]);
-  res.redirect("/admin-dashboard");
+  try {
+    console.log("Received data from form:", req.body); // Log the form data
+
+    const { name } = req.body; // Get the sport name
+
+    console.log("Sport name received:", name); // Log the extracted name
+
+    // Validate input
+    if (!name || name.trim() === "") {
+      return res.status(400).send("Sport name is required.");
+    }
+
+    // Insert into database
+    await pool.query("INSERT INTO sports (name) VALUES ($1)", [name.trim()]);
+
+    // Redirect to the admin dashboard
+    res.redirect("/admin-dashboard");
+  } catch (error) {
+    console.error("Error creating sport:", error.message);
+    res.status(500).send("Error creating sport.");
+  }
 });
+
 app.get("/logout", (req, res) => {
-  req.session.destroy();
-  res.redirect("/");
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Error destroying session:", err);
+      return res.status(500).send("Error logging out");
+    }
+    res.clearCookie("connect.sid"); // Clear the session cookie
+    res.redirect("/");
+  });
 });
 
 app.post("/delete-session", isAuthenticated, async (req, res) => {
@@ -134,16 +159,31 @@ app.post("/delete-session", isAuthenticated, async (req, res) => {
     // Ensure session_id is parsed correctly as an integer
     const sessionIdInt = parseInt(session_id);
 
-    // Delete session from sessions table
+    // Start a database transaction
+    await pool.query("BEGIN");
+
+    // Delete associated records in session_players first
+    await pool.query("DELETE FROM session_players WHERE session_id = $1", [
+      sessionIdInt,
+    ]);
+
+    // Delete the session from the sessions table
     await pool.query("DELETE FROM sessions WHERE id = $1", [sessionIdInt]);
+
+    // Commit the transaction
+    await pool.query("COMMIT");
 
     // Redirect to admin dashboard after successful deletion
     res.redirect("/admin-dashboard");
   } catch (error) {
+    // Rollback the transaction in case of an error
+    await pool.query("ROLLBACK");
+
     console.error(error);
     res.status(500).send("Error deleting session");
   }
 });
+
 app.get("/player-dashboard", isAuthenticated, async (req, res) => {
   const user_id = req.session.user.id;
 
