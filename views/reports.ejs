@@ -4,9 +4,96 @@
     <meta charset="UTF-8" />
     <title>Reports</title>
     <link rel="icon" href="/sports-icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        background-image: url('/sports-icon.png'); /* Replace with your background image path */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #2f4f2f; /* Dark green color for text */
+      }
+
+      header {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(90deg, #2e7d32, #66bb6a); /* Green gradient */
+        color: white;
+        font-size: 2.5em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .container {
+        margin: 40px auto;
+        padding: 20px;
+        max-width: 1200px;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      h2 {
+        color: #388e3c; /* Medium green */
+        font-size: 1.8em;
+        border-bottom: 3px solid #81c784; /* Light green border */
+        display: inline-block;
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-size: 0.95em;
+      }
+
+      th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background: #66bb6a; /* Light green for header */
+        color: white;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f1f8e9; /* Very light green for alternating rows */
+      }
+
+      tr:hover {
+        background-color: #c8e6c9; /* Subtle hover effect with light green */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      td {
+        font-size: 0.9em;
+        color: #2f4f2f; /* Consistent dark green text */
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+
+        table {
+          font-size: 0.85em;
+        }
+
+        th, td {
+          padding: 8px;
+        }
+      }
+    </style>
   </head>
-  <body id="reports-page">
+  <body>
     <header>
       <h1>Reports</h1>
     </header>
@@ -51,5 +138,4 @@
       </table>
     </div>
   </body>
-  
 </html>
