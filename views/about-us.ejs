@@ -8,48 +8,38 @@
   <style>
     /* Global Styles */
     body {
-    background: url('about-us.jpeg') no-repeat center center;
+      background: url('about-us.jpeg') no-repeat center center fixed;
       background-size: cover;
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
       color: #333;
     }
 
-    /* Parallax Section */
-    .parallax {
-      height: 100vh;
-      background-attachment: fixed;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    /* Header Styles */
+    header {
+      background-color: rgba(0, 128, 0, 0.8); /* Green color with slight transparency */
       color: white;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .parallax h1 {
-      font-size: 4rem;
+    header h1 {
       margin: 0;
+      font-size: 3rem;
     }
 
-    .parallax p {
-      font-size: 1.5rem;
-      margin-top: 10px;
-    }
-
-    /* Container */
+    /* Features Section */
     .container {
       max-width: 1000px;
-      margin: -200px auto 50px auto;
+      margin: 50px auto;
       background-color: white;
       padding: 40px;
       border-radius: 15px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
-    /* Feature Item Styles */
     .feature-item {
       display: flex;
       align-items: center;
@@ -57,7 +47,7 @@
       background: #f4f4f4;
       margin: 20px 0;
       padding: 20px;
-      border-radius: 50px;
+      border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -70,7 +60,7 @@
     .feature-icon {
       flex-shrink: 0;
       width: 60px;
-      height: 80px;
+      height: 60px;
       background-color: green;
       color: white;
       font-size: 2rem;
@@ -82,7 +72,7 @@
 
     .feature-content h2 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: green;
     }
 
@@ -97,7 +87,7 @@
       background-color: #333;
       color: white;
       text-align: center;
-      padding: 20px 10px;
+      padding: 20px;
     }
 
     footer a {
@@ -113,15 +103,12 @@
 </head>
 
 <body>
-  <!-- Parallax Section -->
-  <div class="parallax">
-    <div>
-      <h1>About Sports Scheduler</h1>
-      <p>Revolutionize your sports journey with our all-in-one platform.</p>
-    </div>
-  </div>
+  <!-- Header Section -->
+  <header>
+    <h1>About Sports Scheduler</h1>
+  </header>
 
-  <!-- Content Section -->
+  <!-- Features Section -->
   <div class="container">
     <h1>What We Offer</h1>
 
