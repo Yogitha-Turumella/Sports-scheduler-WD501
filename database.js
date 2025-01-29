@@ -1,5 +1,6 @@
 const { Pool } = require("pg");
 
+// Configure the database connection pool
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
@@ -7,9 +8,16 @@ const pool = new Pool({
   password: "Yogitha123@",
   port: 5432,
 });
-pool
-  .connect()
-  .then(() => console.log("PostgreSQL connected"))
-  .catch((err) => console.error("Error connecting to PostgreSQL", err));
+
+// Log successful connection
+pool.on("connect", () => {
+  console.log("PostgreSQL connected");
+});
+
+// Log errors
+pool.on("error", (err) => {
+  console.error("Unexpected error on PostgreSQL client", err);
+  process.exit(-1); // Exit the process in case of critical errors
+});
 
 module.exports = pool;

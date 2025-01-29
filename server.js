@@ -24,23 +24,40 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-function preventJoiningPastSessions(req, res, next) {
-  const { session_id } = req.body;
-  pool.query(
-    "SELECT * FROM sessions WHERE id = $1",
-    [session_id],
-    (err, result) => {
-      if (err) {
-        return res.redirect("/player-dashboard");
-      }
-      const session = result.rows[0];
-      if (new Date(session.date) < new Date()) {
-        return res.redirect("/player-dashboard");
-      }
-      next();
+const preventJoiningPastSessions = async (req, res, next) => {
+  try {
+    const sessionId = req.params.sessionId; // Assuming sessionId is passed in the route
+    console.log("Session ID received:", sessionId); // Log the session ID
+
+    const session = await pool.query(
+      "SELECT * FROM sessions WHERE id = $1 AND date < NOW()",
+      [sessionId]
+    );
+    if (!session) {
+      console.log("Session not found."); // Log if session does not exist
+      return res.redirect("/player-dashboard");
     }
-  );
-}
+
+    const currentTime = new Date();
+    console.log("Current time:", currentTime); // Log the current time
+    console.log("Session date and time:", session.date); // Log the session date and time
+
+    if (new Date(session.date) < currentTime) {
+      console.log("The session has already passed."); // Log if session is in the past
+      return res.redirect("/player-dashboard");
+    }
+
+    if (session.cancelled) {
+      console.log("The session has been cancelled."); // Log if session is cancelled
+      return res.redirect("/player-dashboard");
+    }
+
+    next();
+  } catch (error) {
+    console.error("Error in preventJoiningPastSessions middleware:", error); // Log any errors
+    return res.status(500).send("An error occurred.");
+  }
+};
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -276,21 +293,24 @@ app.post("/create-session", isAuthenticated, async (req, res) => {
   }
 });
 
-app.post(
-  "/join-session",
-  isAuthenticated,
-  preventJoiningPastSessions,
-  async (req, res) => {
-    const { session_id } = req.body;
-    const user_id = req.session.user.id;
+app.post("/join-session/:sessionId", isAuthenticated, async (req, res) => {
+  try {
+    const { sessionId } = req.params; // Get sessionId from URL
+    const userId = req.session.user.id;
 
+    // Check if session ID is valid
+    if (!sessionId) {
+      return res.status(400).send("Session ID is required.");
+    }
+
+    // Check if user already joined
     const existing = await pool.query(
       "SELECT * FROM session_players WHERE session_id = $1 AND player_id = $2",
-      [session_id, user_id]
+      [sessionId, userId]
     );
 
     if (existing.rows.length > 0) {
-      console.log("User is already joined to the session");
+      console.log("User already joined this session.");
       return res.redirect(
         req.session.user.role === "admin"
           ? "/admin-dashboard"
@@ -298,18 +318,23 @@ app.post(
       );
     }
 
+    // Insert into session_players
     await pool.query(
       "INSERT INTO session_players (session_id, player_id) VALUES ($1, $2)",
-      [session_id, user_id]
+      [sessionId, userId]
     );
 
+    // Redirect to dashboard
     res.redirect(
       req.session.user.role === "admin"
         ? "/admin-dashboard"
         : "/player-dashboard"
     );
+  } catch (error) {
+    console.error("Error joining session:", error.message);
+    res.status(500).send("An error occurred.");
   }
-);
+});
 
 app.post("/cancel-session", isAuthenticated, async (req, res) => {
   const { session_id } = req.body; // Check the received session_id

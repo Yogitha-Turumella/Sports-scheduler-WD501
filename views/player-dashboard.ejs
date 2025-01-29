@@ -121,7 +121,7 @@
       <% }) %>
     </ul>
     <% if (!session.players.some(player => player.id === user.id)) { %>
-    <form action="/join-session" method="POST" style="margin-top: 1rem;">
+    <form action="/join-session/<%= session.id %>" method="POST" style="margin-top: 1rem;">
       <input type="hidden" name="session_id" value="<%= session.id %>" />
       <button
         type="submit"
