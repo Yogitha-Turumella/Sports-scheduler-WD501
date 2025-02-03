@@ -28,7 +28,6 @@ Clone this repository:
 git clone https://github.com/your-username/sports-session-management-app.git
 Navigate to the project directory:
 
-
 cd sports-session-management-app
 Install the required dependencies:
 
@@ -105,32 +104,3 @@ Passwords are hashed using bcryptjs to ensure security.
 Sessions are managed using express-session to keep users authenticated.
 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with any improvements or features.
-
-Walkthrough of the application:
-![image](https://github.com/user-attachments/assets/8171cc91-723d-491c-8cdb-4191c60b5503)
-
-![image](https://github.com/user-attachments/assets/149852ec-533c-4588-8f6d-4c7f8ecbcc9b)
-
-![image](https://github.com/user-attachments/assets/1c969952-bc2a-427e-828e-6cf79ff75b31)
-
-![image](https://github.com/user-attachments/assets/fa450d35-12b9-479f-9726-f853dce98fd9)
-
-![image](https://github.com/user-attachments/assets/53b7a49e-f17e-45f1-a288-f32f7aaa15dd)
-
-![image](https://github.com/user-attachments/assets/99d20343-cf38-4baf-8d03-51f863e28645)
-
-![image](https://github.com/user-attachments/assets/690198bc-af3b-4ce4-ba23-a7c82bd94522)
-
-![image](https://github.com/user-attachments/assets/ec92532c-a2f0-4928-b9b6-c6866c1400b9)
-
-![image](https://github.com/user-attachments/assets/b9d36e58-6623-481b-a990-48a2c70a712b)
-
-
-
-
-
-
-
-
-
-
