@@ -104,3 +104,5 @@ Passwords are hashed using bcryptjs to ensure security.
 Sessions are managed using express-session to keep users authenticated.
 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with any improvements or features.
+
+Youtube link: https://youtu.be/ab8I4fJBEzg
