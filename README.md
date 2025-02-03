@@ -25,7 +25,7 @@ PostgreSQL (>=12.x)
 Steps to Setup
 Clone this repository:
 
-git clone https://github.com/your-username/sports-session-management-app.git
+git clone https://github.com/Yogitha-Turumella/Sports-scheduler-WD501-app.git
 Navigate to the project directory:
 
 cd sports-session-management-app
