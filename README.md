@@ -1,4 +1,5 @@
 # sports-scheduler
+
 Sports Session Management App
 Description
 This is a web-based application for managing sports sessions, allowing users to register, log in, create sessions, and join them. It features two types of users: Admins and Players. Admins can create sports, manage sessions, and view reports, while players can join available sessions. The application uses Express, PostgreSQL, bcryptjs for authentication, and EJS for rendering dynamic content.
@@ -43,43 +44,39 @@ Create a PostgreSQL database (e.g., sports_sessions).
 Update the database connection configuration in the ./database.js file.
 Run the migrations to create the necessary tables (example for users and sessions):
 
-sql
-Copy code
 CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(100),
-  email VARCHAR(100) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  role VARCHAR(50) CHECK (role IN ('admin', 'player')) NOT NULL
+id SERIAL PRIMARY KEY,
+name VARCHAR(100),
+email VARCHAR(100) UNIQUE NOT NULL,
+password VARCHAR(255) NOT NULL,
+role VARCHAR(50) CHECK (role IN ('admin', 'player')) NOT NULL
 );
 
 CREATE TABLE sports (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL
+id SERIAL PRIMARY KEY,
+name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE sessions (
-  id SERIAL PRIMARY KEY,
-  sport_id INT REFERENCES sports(id),
-  creator_id INT REFERENCES users(id),
-  team1 VARCHAR(100),
-  team2 VARCHAR(100),
-  additional_players INT DEFAULT 0,
-  date TIMESTAMP,
-  venue VARCHAR(255),
-  cancelled BOOLEAN DEFAULT FALSE,
-  cancellation_reason TEXT
+id SERIAL PRIMARY KEY,
+sport_id INT REFERENCES sports(id),
+creator_id INT REFERENCES users(id),
+team1 VARCHAR(100),
+team2 VARCHAR(100),
+additional_players INT DEFAULT 0,
+date TIMESTAMP,
+venue VARCHAR(255),
+cancelled BOOLEAN DEFAULT FALSE,
+cancellation_reason TEXT
 );
 
 CREATE TABLE session_players (
-  session_id INT REFERENCES sessions(id),
-  player_id INT REFERENCES users(id),
-  PRIMARY KEY (session_id, player_id)
+session_id INT REFERENCES sessions(id),
+player_id INT REFERENCES users(id),
+PRIMARY KEY (session_id, player_id)
 );
 Start the server:
 
-bash
-Copy code
 npm start
 The app will run on http://localhost:3000.
 
