@@ -1,4 +1,4 @@
-🏆 Sports Session Management App
+🏆 Sports Scheduler
 A web-based application designed for managing sports sessions, allowing users to register, log in, create, and join sessions. The system supports two types of users: Admins and Players.
 
 Admins can manage sports, schedule sessions, and generate reports, while players can browse, join, and leave sports sessions. The project is built using Node.js, Express.js, PostgreSQL, and EJS, ensuring a robust and scalable solution for managing sports activities.
@@ -21,24 +21,24 @@ PostgreSQL as the database to store user, session, and sport data.
 EJS as the templating engine for rendering dynamic HTML.
 express-session for managing user authentication and sessions.
 📸 Screenshots
-Homepage
+![Homepage]
 (home.png)
-Login
+![Login]
 (login.png)
-Register
+![Register]
 (register.png)
-Admin Dashboard
+![Admin Dashboard]
 (admin1.png)
 (admin2.png)
-Player Dashboard
+![Player Dashboard]
 (player1.png)
 (player2.png)
 
-Reports
+![Reports]
 (reports.png)
 (reports2.png)
 
-aboutus
+![aboutus]
 (aboutus.png)
 
 📦 Installation Guide
@@ -51,10 +51,10 @@ PostgreSQL (version 12 or later)
 🔹 Setup Instructions
 Clone the Repository
 
-git clone https://github.com/your-username/sports-session-management-app.git
+git clone https://github.com/Yogitha-Turumella/Sports-scheduler-WD501
 Navigate to the project directory:
 
-cd sports-session-management-app
+cd directory-name
 Install Dependencies
 
 npm install
@@ -63,9 +63,7 @@ Set Up PostgreSQL Database
 Create a new PostgreSQL database (e.g., sports_sessions).
 Update the database.js file with your PostgreSQL connection credentials.
 Run the following SQL commands to create the necessary tables:
-sql
-Copy
-Edit
+
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
 name VARCHAR(100),
@@ -134,3 +132,5 @@ Passwords are hashed using bcryptjs to ensure security.
 Sessions are managed using express-session to keep users authenticated.
 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with any improvements or features.
+
+Youtube video link: https://youtu.be/ab8I4fJBEzg
