@@ -21,25 +21,17 @@ PostgreSQL as the database to store user, session, and sport data.
 EJS as the templating engine for rendering dynamic HTML.
 express-session for managing user authentication and sessions.
 📸 Screenshots
-![Homepage]
-(home.png)
-![Login]
-(login.png)
-![Register]
-(register.png)
-![Admin Dashboard]
-(admin1.png)
-(admin2.png)
-![Player Dashboard]
-(player1.png)
-(player2.png)
+![Home Page](home.png)
+![Login](login.png)
 
-![Reports]
-(reports.png)
-(reports2.png)
+![Register](register.png)
+![Admin Dashboard](admin1.png)(admin2.png)
 
-![aboutus]
-(aboutus.png)
+![Player Dashboard](player1.png)(player2.png)
+
+![Reports](reports.png)(reports2.png)
+
+![aboutus](aboutus.png)
 
 📦 Installation Guide
 🔹 Prerequisites
@@ -54,7 +46,7 @@ Clone the Repository
 git clone https://github.com/Yogitha-Turumella/Sports-scheduler-WD501
 Navigate to the project directory:
 
-cd directory-name
+cd sports-session-management-app
 Install Dependencies
 
 npm install
