@@ -21,22 +21,25 @@ PostgreSQL as the database to store user, session, and sport data.
 EJS as the templating engine for rendering dynamic HTML.
 express-session for managing user authentication and sessions.
 📸 Screenshots
-![Home Page](home.png)
-
-![Login](login.png)
-
-![register](register.png)
-
-![Admin Dashboard](admin1.png)
+Homepage
+(home.png)
+Login
+(login.png)
+Register
+(register.png)
+Admin Dashboard
+(admin1.png)
 (admin2.png)
-
-![Player Dashboard](player1.png)
+Player Dashboard
+(player1.png)
 (player2.png)
 
-![Reports](reports.png)
+Reports
+(reports.png)
 (reports2.png)
 
-![aboutus](aboutus.png)
+aboutus
+(aboutus.png)
 
 📦 Installation Guide
 🔹 Prerequisites
