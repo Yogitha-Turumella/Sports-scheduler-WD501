@@ -1,43 +1,68 @@
-# sports-scheduler
+🏆 Sports Session Management App
+A web-based application designed for managing sports sessions, allowing users to register, log in, create, and join sessions. The system supports two types of users: Admins and Players.
 
-Sports Session Management App
-Description
-This is a web-based application for managing sports sessions, allowing users to register, log in, create sessions, and join them. It features two types of users: Admins and Players. Admins can create sports, manage sessions, and view reports, while players can join available sessions. The application uses Express, PostgreSQL, bcryptjs for authentication, and EJS for rendering dynamic content.
+Admins can manage sports, schedule sessions, and generate reports, while players can browse, join, and leave sports sessions. The project is built using Node.js, Express.js, PostgreSQL, and EJS, ensuring a robust and scalable solution for managing sports activities.
 
-Features
-Authentication: Users can register, log in, and log out.
-Admin Dashboard: Admins can manage sports, sessions, and view detailed reports.
-Player Dashboard: Players can view available sessions and join them.
-Session Management: Admins can create, delete, and cancel sessions. Players can join and leave sessions.
-Reports: Admins can view reports about session popularity by sport.
-Technologies Used
-Node.js: Backend framework to run the application.
-Express: Web framework for building the app.
-bcryptjs: For hashing passwords.
-PostgreSQL: Database for storing user data, sports, sessions, and other related data.
-EJS: Template engine for rendering dynamic HTML.
-express-session: For handling user sessions.
-Installation
-Prerequisites
-Node.js (>=14.x)
-npm (Node package manager)
-PostgreSQL (>=12.x)
-Steps to Setup
-Clone this repository:
+📌 Features
+User Authentication – Secure login and registration system with password hashing.
+Admin Dashboard – Create, delete, and manage sports sessions.
+Player Dashboard – View and join available sports sessions.
+Session Management – Admins can create, cancel, and delete sessions. Players can join or leave sessions.
+Reports & Analytics – Admins can track session popularity and participation trends.
+Secure Authentication – Passwords are securely hashed using bcryptjs.
+Role-Based Access Control – Separate functionalities for Admins and Players.
+🛠️ Technologies Used
+This project is built with modern web technologies to ensure a secure and efficient application.
 
-git clone https://github.com/Yogitha-Turumella/Sports-scheduler-WD501
+Node.js for the backend server.
+Express.js as the web framework for API and route handling.
+bcryptjs for secure password hashing.
+PostgreSQL as the database to store user, session, and sport data.
+EJS as the templating engine for rendering dynamic HTML.
+express-session for managing user authentication and sessions.
+📸 Screenshots
+![Home Page](home.png)
+
+![Login](login.png)
+
+![register](register.png)
+
+![Admin Dashboard](admin1.png)
+(admin2.png)
+
+![Player Dashboard](player1.png)
+(player2.png)
+
+![Reports](reports.png)
+(reports2.png)
+
+![aboutus](aboutus.png)
+
+📦 Installation Guide
+🔹 Prerequisites
+Before running this application, ensure you have the following installed on your system:
+
+Node.js (version 14 or later)
+npm (Node Package Manager)
+PostgreSQL (version 12 or later)
+🔹 Setup Instructions
+Clone the Repository
+
+git clone https://github.com/your-username/sports-session-management-app.git
 Navigate to the project directory:
 
 cd sports-session-management-app
-Install the required dependencies:
+Install Dependencies
 
 npm install
-Set up PostgreSQL:
+Set Up PostgreSQL Database
 
-Create a PostgreSQL database (e.g., sports_sessions).
-Update the database connection configuration in the ./database.js file.
-Run the migrations to create the necessary tables (example for users and sessions):
-
+Create a new PostgreSQL database (e.g., sports_sessions).
+Update the database.js file with your PostgreSQL connection credentials.
+Run the following SQL commands to create the necessary tables:
+sql
+Copy
+Edit
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
 name VARCHAR(100),
@@ -69,32 +94,34 @@ session_id INT REFERENCES sessions(id),
 player_id INT REFERENCES users(id),
 PRIMARY KEY (session_id, player_id)
 );
-Start the server:
+Start the Server
 
 npm start
-The app will run on http://localhost:3000.
+The application will now be running at http://localhost:3000 🎉
 
-Application Routes
-GET /: Home page.
-GET /login: Login page.
-POST /login: Login action.
-GET /register: Register page.
-POST /register: Registration action.
-GET /admin-dashboard: Admin dashboard to manage sessions and sports.
-POST /create-sport: Action to create a new sport.
-POST /delete-session: Action to delete a session.
-GET /player-dashboard: Player dashboard to view and join sessions.
-POST /create-session: Action to create a new session.
-POST /join-session: Action to join a session.
-POST /cancel-session: Action to cancel a session.
-GET /reports: Admin can view reports about session popularity.
-User Roles
-Admin:
+🌍 Application Routes
+GET / - Home page
+GET /login - User login page
+POST /login - Handles user login authentication
+GET /register - User registration page
+POST /register - Handles new user registration
+GET /admin-dashboard - Admin dashboard for managing sports and sessions
+POST /create-sport - Action to add a new sport
+POST /delete-session - Deletes an existing session
+GET /player-dashboard - Player dashboard to view and join sessions
+POST /create-session - Allows admins to create new sessions
+POST /join-session/:sessionId - Allows players to join a session
+POST /cancel-session - Allows players to cancel their participation in a session
+GET /reports - Admins can view reports about session popularity
+👥 User Roles & Permissions
+👑 Admin
+Admins have full control over the sports session management system. They can:
 
-Create and manage sports and sessions.
-View reports on session popularity.
-Delete or cancel sessions.
-Player:
+Create and manage different sports and sessions.
+View reports on session participation and popularity.
+Delete or cancel sports sessions when necessary.
+🏅 Player
+Players can participate in sports sessions by:
 
 Register and log in.
 Join available sessions.
@@ -104,5 +131,3 @@ Passwords are hashed using bcryptjs to ensure security.
 Sessions are managed using express-session to keep users authenticated.
 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with any improvements or features.
-
-Youtube link: https://youtu.be/ab8I4fJBEzg
